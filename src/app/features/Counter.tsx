@@ -10,7 +10,9 @@ export const Counter = () => {
   return (
     <>
       <div css={tw`text-pastel-purple font-bold`}>
-        <button onClick={() => dispatch(increment())}>Increment. Count is {count}</button>
+        <button data-testid="counter-increment" onClick={() => dispatch(increment())}>
+          Increment. Count is {count}
+        </button>
       </div>
       <div css={tw`text-pastel-orange font-semibold`}>
         <button onClick={() => dispatch(decrement())}>Decrement. Count is {count}</button>
