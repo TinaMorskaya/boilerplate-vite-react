@@ -4,5 +4,15 @@
     ["@babel/preset-react", { "runtime": "automatic" }],
     "@babel/preset-typescript"
     ],
-  "plugins": ["macros"]
+  "plugins": [
+    "macros",
+    [
+    "babel-plugin-styled-components",
+    {
+      "fileName": false,
+      "pure": true,
+      "minify": false,
+      "transpileTemplateLiterals": false
+    }
+  ]]
 }

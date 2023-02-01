@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from "../reduxHooks";
 import React from "react";
 import { decrement, increment, selectCount } from "./counterSlice";
 import tw from "twin.macro";
+import styled from "styled-components";
 
 export const Counter = () => {
   const count = useAppSelector(selectCount);
@@ -10,9 +11,9 @@ export const Counter = () => {
   return (
     <>
       <div css={tw`text-pastel-purple font-bold`}>
-        <button data-testid="counter-increment" onClick={() => dispatch(increment())}>
+        <StyledButton data-testid="counter-increment" onClick={() => dispatch(increment())}>
           Increment. Count is {count}
-        </button>
+        </StyledButton>
       </div>
       <div css={tw`text-pastel-orange font-semibold`}>
         <button onClick={() => dispatch(decrement())}>Decrement. Count is {count}</button>
@@ -20,3 +21,7 @@ export const Counter = () => {
     </>
   );
 };
+
+const StyledButton = styled("button")`
+  ${tw`bg-blue-100`}
+`;
