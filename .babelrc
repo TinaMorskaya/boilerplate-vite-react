@@ -10,9 +10,7 @@
     "babel-plugin-styled-components",
     {
       "fileName": false,
-      "pure": true,
-      "minify": false,
-      "transpileTemplateLiterals": false
+      "pure": true
     }
   ]]
 }
