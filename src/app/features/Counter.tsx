@@ -1,27 +1,38 @@
 import { useAppDispatch, useAppSelector } from "../reduxHooks";
-import React from "react";
-import { decrement, increment, selectCount } from "./counterSlice";
+import React, { useState } from "react";
+import { decrement, increment, incrementByAmount, selectCount } from "./counterSlice";
 import tw from "twin.macro";
 import styled from "styled-components";
+import { Button } from "antd";
+import { InputNumber } from "antd/lib";
 
 export const Counter = () => {
   const count = useAppSelector(selectCount);
   const dispatch = useAppDispatch();
+  const [inputValue, setInputValue] = useState(count);
 
   return (
     <>
-      <div css={tw`text-pastel-purple font-bold`}>
-        <StyledButton data-testid="counter-increment" onClick={() => dispatch(increment())}>
-          Increment. Count is {count}
-        </StyledButton>
-      </div>
-      <div css={tw`text-pastel-orange font-semibold`}>
-        <button onClick={() => dispatch(decrement())}>Decrement. Count is {count}</button>
+      <h2 css={tw`text-pastel-blue text-xl font-bold`} data-testid="counter-count">
+        Count is {count}
+      </h2>
+      <StyledButton data-testid="counter-increment" onClick={() => dispatch(increment())}>
+        Increment
+      </StyledButton>
+      <StyledButton onClick={() => dispatch(decrement())}>Decrement</StyledButton>
+      <div css={tw`flex gap-x-1`}>
+        <InputNumber
+          min={0}
+          addonBefore={<p>Increment by amount:</p>}
+          value={inputValue}
+          onChange={(value: number | null) => value && setInputValue(value)}
+        />
+        <StyledButton onClick={() => dispatch(incrementByAmount(inputValue))}>OK</StyledButton>
       </div>
     </>
   );
 };
 
-const StyledButton = styled("button")`
-  ${tw`bg-blue-100`}
+const StyledButton = styled(Button)`
+  ${tw`text-pastel-purple font-semibold`}
 `;
