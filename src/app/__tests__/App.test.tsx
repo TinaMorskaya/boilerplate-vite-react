@@ -11,7 +11,7 @@ const setup = () => {
 describe("<App />", () => {
   it("should render the App", () => {
     setup();
-    screen.debug();
     expect(screen.getByText("Boilerplate")).toBeInTheDocument();
+    expect(screen.getByTestId("counter-count")).toBeInTheDocument();
   });
 });

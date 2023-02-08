@@ -19,15 +19,23 @@ export const Counter = () => {
       <StyledButton data-testid="counter-increment" onClick={() => dispatch(increment())}>
         Increment
       </StyledButton>
-      <StyledButton onClick={() => dispatch(decrement())}>Decrement</StyledButton>
+      <StyledButton data-testid="counter-decrement" onClick={() => dispatch(decrement())}>
+        Decrement
+      </StyledButton>
       <div css={tw`flex gap-x-1`}>
         <InputNumber
           min={0}
           addonBefore={<p>Increment by amount:</p>}
           value={inputValue}
           onChange={(value: number | null) => value && setInputValue(value)}
+          data-testid="counter-increment-by-amount-input"
         />
-        <StyledButton onClick={() => dispatch(incrementByAmount(inputValue))}>OK</StyledButton>
+        <StyledButton
+          data-testid="counter-increment-by-amount-button"
+          onClick={() => dispatch(incrementByAmount(inputValue))}
+        >
+          OK
+        </StyledButton>
       </div>
     </>
   );
