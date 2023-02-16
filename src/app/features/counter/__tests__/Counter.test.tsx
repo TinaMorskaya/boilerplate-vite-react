@@ -1,9 +1,9 @@
 import React from "react";
 import { fireEvent, screen } from "@testing-library/react";
 
-import { renderWithProviders } from "../../../utils/test-utils";
+import { renderWithProviders } from "../../../../utils/test-utils";
 import { Counter } from "../Counter";
-import { RootState } from "../../reduxStore";
+import { RootState } from "../../../reduxStore";
 import { decrement, increment, incrementByAmount } from "../counterSlice";
 
 const setup = (preloadedState?: (state: RootState) => void) => {

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "../reduxStore";
+import { RootState } from "../../reduxStore";
 
 interface CounterState {
   counterValue: number;
