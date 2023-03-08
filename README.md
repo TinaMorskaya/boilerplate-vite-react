@@ -18,3 +18,5 @@ Boilerplate offers some demonstration features and tests.
 * `npm install` all dependencies
 *  type `npm run dev` to run app
 * type `npm run test` to run tests
+
+Node.js v19.4.0
