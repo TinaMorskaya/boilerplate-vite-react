@@ -8,6 +8,17 @@ export default defineConfig({
       target: "es2020",
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id.toString().split("node_modules/")[1].split("/")[0].toString();
+          }
+        },
+      },
+    },
+  },
   esbuild: {
     // https://github.com/vitejs/vite/issues/8644#issuecomment-1159308803
     logOverride: { "this-is-undefined-in-esm": "silent" },

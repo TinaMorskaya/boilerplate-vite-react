@@ -43,6 +43,13 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-restricted-imports": ["error", {
+            "name": "antd/lib",
+            "message": "Please use import from antd/lib/[component_folder] instead"
+        }, {
+            "name": "antd",
+            "message": "Please use import from antd/lib/[component_folder] instead"
+        }]
     }
 }
