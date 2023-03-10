@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { decrement, increment, incrementByAmount, selectCount } from "./counterSlice";
 import tw from "twin.macro";
 import styled from "styled-components";
-import { Button } from "antd";
-import { InputNumber } from "antd/lib";
+import Button from "antd/lib/button";
+import InputNumber from "antd/lib/input-number";
 
 export const Counter = () => {
   const count = useAppSelector(selectCount);
